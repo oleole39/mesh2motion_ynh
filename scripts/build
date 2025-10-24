@@ -38,7 +38,7 @@ function ynh_build_instructions {
     #=================================================
     # BUILD INSTRUCTIONS (REQUIRED)
     #=================================================
-    npm run build
+    npm install && npm run build
 }
 
 #=================================================
