@@ -1,7 +1,7 @@
 packaging_format = 2
 
 id = "mesh2motion"
-name = "Example app"
+name = "Mesh2Motion"
 description.en = "Web application to animate your 3D models"
 description.fr = "Application web pour animer vos modèles 3D"
 
