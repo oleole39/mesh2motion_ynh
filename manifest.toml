@@ -5,7 +5,7 @@ name = "Example app"
 description.en = "Web application to animate your 3D models"
 description.fr = "Application web pour animer vos modèles 3D"
 
-version = "1.0~ynh1"
+version = "2025.10.21~ynh1"
 
 maintainers = ["oleole39"]
 
