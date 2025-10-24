@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+Application web pour animer vos modèles 3D de créatures humanoides, quadripèdes ou bien aviaires.

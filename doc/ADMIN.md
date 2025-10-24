@@ -1,3 +1,3 @@
-This is a dummy admin doc for this app
+### Note
 
-The app install dir is `__INSTALL_DIR__`
+This webapp does not store any user data on the server and runs fully in-browser, without any third party calls. 
