@@ -16,7 +16,7 @@ if [[ $path != '/' ]]; then newpath=$path; fi
 # Replace references to remote Google fonts to local ones
 ynh_replace --match="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" --replace="https://$domain$newpath/assets/ynh_localize_fonts.css" --file="$install_dir/index.html"
 ynh_replace --match="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" --replace="https://$domain$newpath/assets/ynh_localize_fonts.css" --file="$install_dir/create.html"
-sed -i 's@https://fonts\.googleapis\.com/css2\?family=Jost&display=swap@https://$domain$newpath/assets/ynh_localize_fonts.css@g' "$install_dir/assets/dialog-*.css"
+sed -i 's@https://fonts\.googleapis\.com/css2\?family=Jost&display=swap@https://$domain$newpath/assets/ynh_localize_fonts.css@g' $install_dir/assets/dialog-*.css
 ynh_config_add --template="ynh_localize_fonts.css" --destination="$install_dir/assets/ynh_localize_fonts.css"
 ynh_config_add --template="material-symbols-outlined-v290-latin-regular.woff2" --destination="$install_dir/assets/material-symbols-outlined-v290-latin-regular.woff2"
 ynh_config_add --template="jost-v20-cyrillic_latin_latin-ext-regular.woff2" --destination="$install_dir/assets/jost-v20-cyrillic_latin_latin-ext-regular.woff2"
