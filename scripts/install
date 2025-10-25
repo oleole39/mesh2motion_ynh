@@ -13,15 +13,21 @@ ynh_setup_source --dest_dir="$install_dir" --source_id="ynh_build"
 newpath=""
 if [[ $path != '/' ]]; then newpath=$path; fi
 
-# Replace URL placeholder with $path only in specific cases
-#~ index_js_path="$(sed --regexp-extended --silent 's@\s*<script type="module" crossorigin src=".*/(assets/index-[^.]*\.js)\"></script>@\1@p' $install_dir/index.html)" #e.g. assets/index-86994da2.js
-#~ sed --regexp-extended --in-place "s@([a-zA-Z0-9^=]*)=\"modulepreload\",([a-zA-Z0-9^=]*)=function\(([a-zA-Z0-9^=]*)\)\{return\"/__YNH_DOMAIN____YNH_SUBDIR_PATH__/\"@\1=\"modulepreload\",\2=function\(\3\)\{return\"$newpath/\"@g" $install_dir/$index_js_path
-#~ sed --regexp-extended --in-place "s@loadEnv\(\{BASE_URL:\"/__YNH_DOMAIN____YNH_SUBDIR_PATH__@loadEnv({BASE_URL:\"$path/@g" $install_dir/$index_js_path
+# Replace references to remote Google fonts to local ones
+ynh_replace --match="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" --replace="https://$domain$newpath/assets/ynh_localize_fonts.css" --file="$install_dir/index.html"
+ynh_replace --match="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" --replace="https://$domain$newpath/assets/ynh_localize_fonts.css" --file="$install_dir/create.html"
+sed -i 's@https://fonts\.googleapis\.com/css2\?family=Jost&display=swap@https://$domain$newpath/assets/ynh_localize_fonts.css/g' "$install_dir/assets/dialog-*?css"
+ynh_config_add --template="ynh_localize_fonts.css" --destination="$install_dir/assets/ynh_localize_fonts.css"
+ynh_config_add --template="material-symbols-outlined-v290-latin-regular.woff2" --destination="$install_dir/assets/material-symbols-outlined-v290-latin-regular.woff2"
+ynh_config_add --template="jost-v20-cyrillic_latin_latin-ext-regular.woff2" --destination="$install_dir/assets/jost-v20-cyrillic_latin_latin-ext-regular.woff2"
 
 # Replace URL placeholder with absolute URL for all files of the app folder
-#~ match_regex="/?__YNH_DOMAIN____YNH_SUBDIR_PATH__"
-#~ sed --regexp-extended --in-place "s@$match_regex@https://$domain$newpath/@g" $install_dir/manifest.webmanifest
-#~ grep --extended-regexp --recursive --files-with-matches --ignore-case "$match_regex" $install_dir/* | xargs -d '\n' sed --regexp-extended --in-place "s@$match_regex@https://$domain$newpath@g"
+match_regex="/?__YNH_DOMAIN____YNH_SUBDIR_PATH__"
+grep --extended-regexp --recursive --files-with-matches --ignore-case "$match_regex" $install_dir/* | xargs -d '\n' sed --regexp-extended --in-place "s@$match_regex@https://$domain$newpath@g"
+
+# Other specific $domain$path replacement
+ynh_replace --match="=\"\./" --replace="=\"https://$domain$newpath/" --file="$install_dir/index.html"
+ynh_replace --match="\"/create" --replace="=\"https://$domain$newpath/create" --file="$install_dir/index.html"
 
 #=================================================
 # SYSTEM CONFIGURATION
