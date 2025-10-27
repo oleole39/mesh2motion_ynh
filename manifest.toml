@@ -55,8 +55,8 @@ ram.runtime = "50M"
         autoupdate.strategy = "latest_github_commit"
         
         [resources.sources.ynh_build]
-        url = "https://github.com/oleole39/mesh2motion_ynh/releases/download/v2025.10.21-735a3ccd/mesh2motion-app_v2025.10.21-735a3ccd_ynh.zip"
-        sha256 = "11682b7d0fca77ae0df20a26910801f8393a16b42c8209aa3609f28c5e2031a7"
+        url = "https://github.com/oleole39/mesh2motion_ynh/releases/download/v2025.10.21-6709d719/mesh2motion-app_v2025.10.21-6709d719_ynh.zip"
+        sha256 = "4e14e1b298b96ad7ce4118935969df62ce72084383ada00f5ce66f7dfd214533"
         format = "zip"
         extract = true
         in_subdir = true
