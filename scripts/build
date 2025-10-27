@@ -31,6 +31,7 @@ function ynh_optional_source_customizations {
     #=================================================
     # SOURCE CUSTOMIZATION COMMANDS (OPTIONAL)
     #=================================================
+    echo "no optional source customization"
     #sed -ri 's@(base: \x27)./@\1/__YNH_DOMAIN____YNH_SUBDIR_PATH__@g' "./vite.config.js" #change base URL
 }
 
@@ -181,7 +182,7 @@ if [ "$runtime_environment" = "nodejs" ] && [ "$current_node_version" != "$build
     source ~/.nvm/nvm.sh install $build_nodejs_version
 fi
 
-storage_install_build_runtime_environment=$(used_disk_space_in_gb) 
+storage_install_build_runtime_environment=$(used_disk_space_in_gb)
 
 #=================================================
 # BUILD FROM SOURCE
