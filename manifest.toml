@@ -56,7 +56,7 @@ ram.runtime = "50M"
         
         [resources.sources.ynh_build]
         url = "https://github.com/oleole39/mesh2motion_ynh/releases/download/v2025.10.21-735a3ccd/mesh2motion-app_v2025.10.21-735a3ccd_ynh.zip"
-        sha256 = "9ca6e5b710748fc081d55a19be97fb1189ef3f36878112c87488fa01a24b5813"
+        sha256 = "11682b7d0fca77ae0df20a26910801f8393a16b42c8209aa3609f28c5e2031a7"
         format = "zip"
         extract = true
         in_subdir = true
