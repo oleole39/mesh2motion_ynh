@@ -15,7 +15,7 @@ website = "https://mesh2motion.org"
 demo = "https://app.mesh2motion.org"
 admindoc = "https://yunohost.org/packaging_apps"
 userdoc = "https://mesh2motion.org/#walkthrough"
-code = "https://github.com/scottpetrovic/mesh2motion-app"
+code = "https://github.com/oleole39/mesh2motion-app"
 fund = "https://github.com/scottpetrovic/mesh2motion-app/#contribute-to-the-animation-fund"
 
 [integration]

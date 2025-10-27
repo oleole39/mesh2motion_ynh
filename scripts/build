@@ -17,8 +17,8 @@ function ynh_manually_defined_package_variables {
     #=================================================
     ynh_owner="oleole39"                        # YNH repo owner (it only supports GitHub for now) - e.g. "YunoHost-Apps".
     ynh_repo="mesh2motion_ynh"                  # YNH repo name - e.g. "jsoncrack_ynh".
-    upstream_version_source="manifest"          # "manifest" or "latest", depending on whether you want to build the version defined in the manifest or the latest available version upstream. For most cases, use "manifest".
-    upstream_branch_name="main"                 # Name of the branch of the upstream repo to get the source from - often "main" or "master".
+    upstream_version_source="latest"          # "manifest" or "latest", depending on whether you want to build the version defined in the manifest or the latest available version upstream. For most cases, use "manifest".
+    upstream_branch_name="base_url_fix"                 # Name of the branch of the upstream repo to get the source from - often "main" or "master".
     default_build_folder="dist"                 # The folder where to find the built files after build - often "dist" for NodeJS (this is generally documented upstream).
     runtime_environment="nodejs"                # Runtime environment that should be installed - currently only "nodejs" or "none" are supported.
     build_nodejs_version=22                     # NodeJS version to use (if any) for the build.
@@ -31,7 +31,7 @@ function ynh_optional_source_customizations {
     #=================================================
     # SOURCE CUSTOMIZATION COMMANDS (OPTIONAL)
     #=================================================
-    sed -ri 's@(base: \x27)./@\1/meshtest@g' "./vite.config.js" #change base URL
+    sed -ri 's@(base: \x27)./@\1/__YNH_DOMAIN____YNH_SUBDIR_PATH__@g' "./vite.config.js" #change base URL
 }
 
 function ynh_build_instructions {
