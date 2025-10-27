@@ -181,7 +181,7 @@ if [ "$runtime_environment" = "nodejs" ] && [ "$current_node_version" != "$build
     source ~/.nvm/nvm.sh install $build_nodejs_version
 fi
 
-storage_install_build_runtime_environment=$(used_disk_space_in_gb)
+storage_install_build_runtime_environment=$(used_disk_space_in_gb) 
 
 #=================================================
 # BUILD FROM SOURCE
