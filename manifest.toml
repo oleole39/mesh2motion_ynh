@@ -49,7 +49,7 @@ ram.runtime = "50M"
 
         [resources.sources.main]
         # This is not used as we are using git clone. It's only here for autoupdate.
-        url = "https://github.com/scottpetrovic/mesh2motion-app/archive/735a3ccd7f9000e653f968596a71129f09f28cd9.tar.gz"
+        url = "https://github.com/oleole39/mesh2motion-app/archive/735a3ccd7f9000e653f968596a71129f09f28cd9.tar.gz"
         sha256 = "8a63a80adc01d0d66097a11d8b02c3af46eb538cfbb0a97b6e859ca2d52cd2c9"
         prefetch = false
         autoupdate.strategy = "latest_github_commit"
