@@ -23,8 +23,8 @@ if [[ $path != '/' ]]; then newpath=$path; fi
 #~ chown -R "$app:www-data" "$install_dir"
 
 # Replace URL placeholder with absolute URL for all files of the app folder
-#~ match_regex="/?__YNH_DOMAIN____YNH_SUBDIR_PATH__"
-#~ grep --extended-regexp --recursive --files-with-matches --ignore-case "$match_regex" $install_dir/* | xargs -d '\n' sed --regexp-extended --in-place "s@$match_regex@https://$domain$newpath@g"
+match_regex="/?__YNH_SUBDIR_PATH__"
+grep --extended-regexp --recursive --files-with-matches --ignore-case "$match_regex" $install_dir/* | xargs -d '\n' sed --regexp-extended --in-place "s@$match_regex@$newpath@g"
 
 # Other specific $domain$path replacement
 #~ ynh_replace --match="=\"\./" --replace="=\"https://$domain$newpath/" --file="$install_dir/index.html"
