@@ -31,7 +31,7 @@ function ynh_optional_source_customizations {
     #=================================================
     # SOURCE CUSTOMIZATION COMMANDS (OPTIONAL)
     #=================================================
-    sed -ri 's@(base: \x27)./@\1/__YNH_DOMAIN____YNH_SUBDIR_PATH__@g' "./vite.config.js" #change base URL
+    sed -ri 's@(base: \x27)./@\1/__YNH_SUBDIR_PATH__@g' "./vite.config.js" #change base URL
 }
 
 function ynh_build_instructions {
