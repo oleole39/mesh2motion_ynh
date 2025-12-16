@@ -1,1 +1,1 @@
-This is a dummy description of this app features
+Web application to animate your 3D models. Supports humanoid, four-legged, and bird creatures.
